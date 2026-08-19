@@ -1,0 +1,1213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="description" content="Your child will know the parent you become. Kepty lets them know the person you are now."/>
+<title>Kepty</title>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,wght@0,400;0,500;1,400&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Inter:wght@300;400&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+
+:root{
+  --paper:   #FAF8F3;
+  --ink:     #1A1410;
+  --stone:   #B5602A;
+  --ghost:   #EAE4DA;
+  --mid:     #362E28;
+  --white:   #FFFFFF;
+  --error:   #8B3A2E;
+  --hover:   #8B4020;
+}
+
+html{scroll-behavior:smooth;}
+body{
+  background:var(--paper);
+  color:var(--ink);
+  font-family:'Inter',sans-serif;
+  font-size:15px;
+  line-height:1.7;
+  font-weight:300;
+  -webkit-font-smoothing:antialiased;
+}
+
+/* ── THE JOURNAL LINE — signature element ── */
+/* A single vertical rule, like the margin of a notebook */
+.journal-line{
+  position:fixed;
+  left:clamp(24px, 5vw, 80px);
+  top:0; bottom:0;
+  width:1px;
+  background:linear-gradient(to bottom,transparent 0%,rgba(181,96,42,0.2) 8%,rgba(181,96,42,0.2) 92%,transparent 100%);
+  z-index:5;
+  pointer-events:none;
+  opacity:0;
+  transition:opacity 1.2s ease;
+}
+.journal-line.visible{opacity:0;}
+@media(max-width:760px){.journal-line{display:none;}}
+
+/* ── CONTAINER — centred, symmetric, responsive ── */
+.container{
+  width:100%;
+  max-width:860px;
+  margin:0 auto;
+  padding:0 clamp(24px,5vw,60px);
+}
+.container--wide{
+  width:100%;
+  max-width:1000px;
+  margin:0 auto;
+  padding:0 clamp(24px,5vw,60px);
+}
+
+/* ── NAV CONTAINER ── */
+
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  padding:24px clamp(24px,5vw,60px);
+  display:flex;align-items:center;
+  transition:background 0.4s,border-color 0.4s;
+  border-bottom:1px solid transparent;
+}
+.nav-spacer{ flex:1; }
+.nav-logo{
+  font-family:'Bodoni Moda',serif;
+  font-weight:400;font-style:normal;
+  font-size:18px;letter-spacing:0.28em;
+  text-transform:uppercase;color:var(--ink);
+  white-space:nowrap;
+}
+.nav-right{ flex:1; display:flex; justify-content:flex-end; }
+nav.scrolled{
+  background:rgba(250,248,243,0.96);
+  backdrop-filter:blur(12px);
+  border-bottom-color:var(--ghost);
+}
+.nav-cta{
+  font-size:11px;font-weight:400;
+  letter-spacing:0.18em;text-transform:uppercase;
+  color:var(--stone);background:none;border:none;
+  cursor:pointer;padding-bottom:2px;
+  border-bottom:1px solid var(--stone);
+  transition:opacity 0.2s;
+}
+.nav-cta:hover{opacity:0.55;}
+@media(max-width:760px){nav{padding:18px 20px;}}
+
+/* ── HERO ── */
+.hero{
+  min-height:100vh;
+  padding:0;
+  display:flex;flex-direction:column;
+  justify-content:flex-end;
+  position:relative;
+}
+
+.hero-index{
+  font-size:10px;font-weight:400;
+  letter-spacing:0.28em;text-transform:uppercase;
+  color:var(--stone);margin-bottom:48px;
+  opacity:0;animation:fadeUp 1s ease 0.3s forwards;
+}
+.hero-headline{
+  font-family:'Cormorant Garamond',serif;
+  font-weight:300;font-style:italic;
+  font-size:clamp(34px,5.5vw,72px);
+  line-height:1.1;
+  color:var(--ink);
+  max-width:760px;
+  margin-bottom:0;
+  letter-spacing:-0.01em;
+  opacity:0;animation:fadeUp 1s ease 0.5s forwards;
+}
+/* The one non-italic line — contrast within the headline */
+.hero-headline .roman{
+  font-style:normal;
+  font-weight:400;
+  color:var(--stone);
+}
+.hero-rule{
+  width:32px;height:1px;
+  background:var(--stone);
+  margin:52px 0;
+  opacity:0;animation:fadeUp 1s ease 0.7s forwards;
+}
+.hero-sub{
+  font-size:15px;font-weight:300;
+  color:var(--mid);
+  max-width:400px;
+  line-height:1.85;
+  margin-bottom:56px;
+  opacity:0;animation:fadeUp 1s ease 0.9s forwards;
+}
+
+/* ── FORM ── */
+.join-label{
+  font-size:10px;font-weight:400;
+  letter-spacing:0.26em;text-transform:uppercase;
+  color:var(--stone);margin-bottom:14px;
+  opacity:0;animation:fadeUp 1s ease 1.0s forwards;
+}
+
+.form-row{
+  display:flex;
+  border:1px solid var(--ink);
+  background:var(--white);
+  margin-bottom:0;
+  transition:border-color 0.2s, box-shadow 0.2s;
+}
+.form-row:focus-within{
+  border-color:var(--stone);
+  box-shadow:0 0 0 3px rgba(92,79,61,0.08);
+}
+.form-row.error{border-color:var(--error);}
+.form-row input{
+  flex:1;padding:15px 18px;
+  font-family:'Inter',sans-serif;
+  font-size:14px;font-weight:300;
+  color:var(--ink);background:transparent;
+  border:none;outline:none;
+  letter-spacing:0.02em;
+}
+.form-row input::placeholder{color:#B0A898;}
+.form-row button{
+  padding:15px 20px;
+  background:var(--stone);color:var(--paper);
+  font-family:'Inter',sans-serif;
+  font-size:10px;font-weight:400;
+  letter-spacing:0.2em;text-transform:uppercase;
+  border:none;cursor:pointer;
+  transition:background 0.2s;white-space:nowrap;
+}
+.form-row button:hover{background:var(--hover);}
+.form-row button:disabled{opacity:0.4;cursor:wait;}
+.form-note{
+  font-size:11px;color:var(--stone);
+  font-weight:300;letter-spacing:0.04em;
+  margin-top:16px;
+}
+.field-error{font-size:11px;color:var(--error);margin-top:10px;display:none;letter-spacing:0.02em;}
+.field-error.visible{display:block;}
+.success-msg{
+  display:none;
+  padding:20px 0;
+  font-family:'Cormorant Garamond',serif;
+  font-style:italic;font-weight:300;
+  font-size:18px;color:var(--mid);
+  line-height:1.65;max-width:400px;
+  border-top:1px solid var(--ghost);
+}
+
+.counter{
+  margin-top:64px;
+  font-size:11px;letter-spacing:0.12em;
+  text-transform:uppercase;color:var(--stone);
+  opacity:0;animation:fadeUp 1s ease 1.3s forwards;
+  display:flex;align-items:center;gap:12px;
+}
+.counter-dots{display:flex;gap:4px;}
+.counter-dot{
+  width:6px;height:6px;border-radius:50%;
+  background:var(--ghost);
+}
+.counter-dot.filled{background:var(--stone);}
+
+@keyframes fadeUp{
+  from{opacity:0;transform:translateY(12px);}
+  to{opacity:1;transform:none;}
+}
+
+/* ── SHARED ── */
+.section-marker{
+  font-size:10px;font-weight:400;
+  letter-spacing:0.26em;text-transform:uppercase;
+  color:var(--stone);
+  margin-bottom:64px;
+  display:block;
+}
+
+/* ── TRUTH ── */
+.truth{
+  padding:120px 0;
+  max-width:760px;
+}
+
+.truth-body{
+  font-family:'Cormorant Garamond',serif;
+  font-weight:300;font-style:italic;
+  font-size:clamp(22px,3.5vw,40px);
+  line-height:1.5;
+  color:var(--ink);
+}
+.truth-body em{
+  font-style:normal;
+  color:var(--stone);
+}
+
+/* ── TIMELINE ── */
+.timeline{
+  padding:0 0 100px;
+}
+.tl-entry{
+  display:grid;
+  grid-template-columns:80px 1fr;
+  gap:0 48px;
+}
+.tl-year{
+  font-size:11px;font-weight:300;
+  color:var(--stone);letter-spacing:0.08em;
+  padding-top:4px;text-align:right;
+  line-height:1.4;
+}
+.tl-content{
+  padding-bottom:64px;
+  border-left:1px solid var(--ghost);
+  padding-left:48px;
+  position:relative;
+}
+.tl-dot{
+  position:absolute;left:-5px;top:7px;
+  width:9px;height:9px;border-radius:50%;
+  background:var(--paper);
+  border:1px solid var(--stone);
+}
+.tl-entry:last-child .tl-content{padding-bottom:0;}
+.tl-entry:last-child .tl-dot{background:var(--stone);}
+.tl-age{
+  font-size:9px;font-weight:400;
+  letter-spacing:0.22em;text-transform:uppercase;
+  color:var(--stone);margin-bottom:14px;
+}
+.tl-msg{
+  font-family:'Cormorant Garamond',serif;
+  font-weight:300;font-style:italic;
+  font-size:20px;line-height:1.7;
+  color:var(--ink);margin-bottom:10px;
+}
+.tl-narrator{
+  font-size:14px;font-weight:300;
+  color:var(--stone);line-height:1.75;
+  margin-bottom:10px;
+  letter-spacing:0.02em;
+}
+.tl-note{font-size:12px;color:var(--stone);font-weight:300;letter-spacing:0.04em;}
+@media(max-width:760px){
+  .tl-entry{grid-template-columns:40px 1fr;gap:0 24px;}
+  .tl-content{padding-left:28px;}
+}
+
+/* ── PILLARS ── */
+.pillars{
+  padding:0 0 100px;
+}
+.pillar-item{
+  padding:52px 0;
+  border-top:1px solid var(--ghost);
+  display:grid;
+  grid-template-columns:80px 1fr;
+  gap:0 48px;
+  max-width:680px;
+}
+.pillar-item:last-child{border-bottom:1px solid var(--ghost);}
+.pillar-num-label{
+  font-family:'Cormorant Garamond',serif;
+  font-weight:300;font-style:italic;
+  font-size:32px;color:var(--stone);
+  line-height:1;padding-top:4px;
+  text-align:right;
+}
+.pillar-text h3{
+  font-family:'Cormorant Garamond',serif;
+  font-weight:300;
+  font-size:20px;color:var(--ink);
+  margin-bottom:14px;line-height:1.3;
+}
+.pillar-text p{
+  font-size:14px;font-weight:300;
+  color:var(--mid);line-height:1.85;
+}
+@media(max-width:760px){
+  .pillar-item{grid-template-columns:32px 1fr;gap:0 20px;}
+  .pillar-num-label{font-size:22px;}
+}
+
+/* ── PREVIEW ── */
+.preview{
+  padding:0 0 100px;
+}
+.preview-intro{
+  font-family:'Cormorant Garamond',serif;
+  font-weight:300;font-style:italic;
+  font-size:clamp(18px,2.5vw,26px);
+  color:var(--mid);
+  max-width:500px;
+  line-height:1.65;
+  margin-bottom:64px;
+}
+.phones{
+  display:flex;gap:clamp(16px,3vw,48px);flex-wrap:wrap;
+  align-items:flex-start;
+  justify-content:center;
+}
+.phone-wrap{display:flex;flex-direction:column;gap:16px;}
+.phone-label{
+  font-size:10px;font-weight:400;
+  letter-spacing:0.2em;text-transform:uppercase;
+  color:var(--stone);
+}
+.phone{
+  width:clamp(220px,22vw,268px);
+  min-height:520px;
+  background:var(--white);
+  border:1px solid var(--ghost);
+  border-radius:28px;
+  overflow:hidden;
+  box-shadow:0 20px 60px rgba(28,25,23,0.08),0 4px 16px rgba(28,25,23,0.04);
+  display:flex;
+  flex-direction:column;
+}
+/* phone top bar */
+.pbar{
+  background:#1C0F08;
+  padding:16px 20px 12px;
+  display:flex;align-items:center;justify-content:center;
+  position:relative;
+}
+.pbar-name{
+  font-family:'Bodoni Moda',serif;
+  font-weight:400;font-style:normal;
+  font-size:13px;letter-spacing:0.22em;
+  text-transform:uppercase;
+  color:rgba(247,245,240,0.95);
+}
+.pbar-lock{font-size:14px;color:rgba(247,245,240,0.4);position:absolute;right:20px;}
+/* phone body */
+.pbody{padding:20px;flex:1;}
+
+/* entry list */
+.entry-list-item{
+  padding:16px 0;
+  border-bottom:1px solid var(--ghost);
+  cursor:pointer;
+  transition:opacity 0.15s;
+}
+.entry-list-item:hover{opacity:0.7;}
+.entry-list-item:last-of-type{border-bottom:none;}
+.eli-meta{
+  font-size:9px;font-weight:400;
+  letter-spacing:0.18em;text-transform:uppercase;
+  color:var(--stone);margin-bottom:6px;
+  display:flex;justify-content:space-between;
+}
+.eli-preview{
+  font-family:'Cormorant Garamond',serif;
+  font-style:italic;font-size:13px;
+  color:var(--mid);line-height:1.55;
+}
+.eli-thumb{
+  margin-top:8px;height:150px;
+  border-radius:4px;overflow:hidden;
+}
+.add-btn{
+  width:100%;margin-top:28px;
+  padding:12px;
+  background:transparent;
+  border:1px solid var(--ghost);
+  border-radius:4px;
+  font-family:'Inter',sans-serif;
+  font-size:10px;font-weight:400;
+  letter-spacing:0.18em;text-transform:uppercase;
+  color:var(--stone);cursor:pointer;
+  transition:border-color 0.2s,color 0.2s;
+}
+.add-btn:hover{border-color:var(--stone);color:var(--ink);}
+
+/* write view */
+.write-view{display:none;padding:0;}
+.write-back{
+  display:flex;align-items:center;gap:8px;
+  padding:14px 20px;
+  border-bottom:1px solid var(--ghost);
+  cursor:pointer;
+  font-size:10px;letter-spacing:0.14em;text-transform:uppercase;
+  color:var(--stone);
+  transition:color 0.15s;
+}
+.write-back:hover{color:var(--ink);}
+.write-inner{padding:20px;}
+.write-type-row{
+  display:flex;gap:12px;margin-bottom:18px;
+}
+.wt{
+  font-size:10px;font-weight:400;
+  letter-spacing:0.14em;text-transform:uppercase;
+  color:var(--stone);
+  background:none;border:none;
+  cursor:pointer;padding-bottom:4px;
+  border-bottom:1px solid transparent;
+  transition:all 0.15s;
+}
+.wt.active{color:var(--stone);border-bottom-color:var(--stone);}
+.write-age-label{
+  font-size:9px;font-weight:400;
+  letter-spacing:0.2em;text-transform:uppercase;
+  color:var(--stone);margin-bottom:16px;
+}
+textarea.write-box{
+  width:100%;min-height:96px;
+  border:none;border-bottom:1px solid var(--ghost);
+  padding:0 0 12px;
+  font-family:'Cormorant Garamond',serif;
+  font-size:15px;font-style:italic;font-weight:300;
+  color:var(--ink);background:transparent;
+  resize:none;outline:none;line-height:1.7;
+  transition:border-color 0.2s;
+}
+textarea.write-box:focus{border-bottom-color:var(--stone);}
+textarea.write-box::placeholder{color:#C8C3BA;}
+.upload-area{
+  border:1px dashed var(--ghost);
+  border-radius:4px;padding:20px;
+  text-align:center;cursor:pointer;
+  transition:border-color 0.2s;
+}
+.upload-area:hover{border-color:var(--stone);}
+.upload-icon{font-size:20px;margin-bottom:6px;opacity:0.4;}
+.upload-label{font-size:11px;color:var(--stone);font-weight:300;letter-spacing:0.04em;}
+.keep-btn{
+  width:100%;margin-top:18px;padding:12px;
+  background:var(--stone);color:var(--paper);
+  border:none;border-radius:4px;cursor:pointer;
+  font-family:'Inter',sans-serif;
+  font-size:10px;font-weight:400;
+  letter-spacing:0.2em;text-transform:uppercase;
+  transition:background 0.15s;
+}
+.keep-btn:hover{background:var(--hover);}
+
+/* unlock phone */
+.unlock-body{
+  background:#1C0F08;
+  flex:1;
+  display:flex;flex-direction:column;
+  align-items:center;justify-content:center;
+  padding:32px 24px;text-align:center;
+}
+.unlock-icon{font-size:32px;margin-bottom:20px;opacity:0.7;}
+.unlock-title{
+  font-family:'Cormorant Garamond',serif;
+  font-weight:300;font-style:italic;
+  font-size:22px;color:#F7F5F0;
+  margin-bottom:10px;line-height:1.3;
+}
+.unlock-sub{
+  font-size:13px;font-weight:300;
+  color:rgba(247,245,240,0.75);
+  margin-bottom:28px;line-height:1.7;
+  max-width:180px;
+}
+.unlock-input{
+  width:100%;padding:12px 16px;
+  background:rgba(247,245,240,0.06);
+  border:1px solid rgba(247,245,240,0.12);
+  border-radius:4px;
+  color:var(--paper);font-size:14px;
+  text-align:center;letter-spacing:6px;
+  outline:none;font-family:'Inter',sans-serif;
+  transition:border-color 0.2s;
+}
+.unlock-input:focus{border-color:rgba(247,245,240,0.3);}
+.unlock-btn{
+  margin-top:14px;width:100%;padding:12px;
+  background:rgba(247,245,240,0.1);
+  color:var(--paper);border:1px solid rgba(247,245,240,0.15);
+  border-radius:4px;cursor:pointer;
+  font-family:'Inter',sans-serif;
+  font-size:10px;font-weight:400;
+  letter-spacing:0.2em;text-transform:uppercase;
+  transition:background 0.2s;
+}
+.unlock-btn:hover{background:rgba(247,245,240,0.18);}
+.preview-note{
+  margin-top:40px;
+  font-size:12px;color:var(--stone);
+  font-weight:300;line-height:1.7;
+  max-width:480px;letter-spacing:0.02em;
+}
+
+/* ── PRICING ── */
+.pricing{
+  padding:0 0 100px;
+}
+.pricing-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:1px;
+  background:var(--ghost);
+  border:1px solid var(--ghost);
+  max-width:560px;
+  margin:0 auto;
+}
+@media(max-width:600px){.pricing-grid{grid-template-columns:1fr;}}
+.pricing-card{
+  background:var(--paper);
+  padding:44px 36px;
+}
+.pricing-card.featured{background:#1C0F08;}
+.founding{
+  display:inline-block;
+  font-size:9px;font-weight:400;
+  letter-spacing:0.2em;text-transform:uppercase;
+  color:var(--stone);
+  border-bottom:1px solid var(--stone);
+  padding-bottom:2px;
+  margin-bottom:28px;
+}
+.pc-plan{
+  font-size:9px;font-weight:400;
+  letter-spacing:0.22em;text-transform:uppercase;
+  color:var(--stone);margin-bottom:20px;
+}
+.pricing-card.featured .pc-plan{color:rgba(247,245,240,0.4);}
+.pc-amount{
+  font-family:'Cormorant Garamond',serif;
+  font-weight:300;font-size:52px;
+  color:var(--ink);line-height:1;margin-bottom:6px;
+}
+.pricing-card.featured .pc-amount{color:var(--paper);}
+.pc-amount sup{font-size:22px;vertical-align:super;margin-right:2px;}
+.pc-period{
+  font-size:12px;font-weight:300;
+  color:var(--stone);margin-bottom:32px;
+  letter-spacing:0.04em;
+}
+.pricing-card.featured .pc-period{color:rgba(247,245,240,0.4);}
+.pc-features{list-style:none;}
+.pc-features li{
+  font-size:13px;font-weight:300;
+  color:var(--mid);
+  padding:9px 0;
+  border-bottom:1px solid var(--ghost);
+  display:flex;gap:12px;
+  line-height:1.5;
+}
+.pricing-card.featured .pc-features li{
+  color:rgba(247,245,240,0.6);
+  border-bottom-color:rgba(247,245,240,0.06);
+}
+.pc-features li:last-child{border-bottom:none;}
+.pc-features li::before{
+  content:'–';
+  color:var(--stone);flex-shrink:0;
+  margin-top:1px;
+}
+.pricing-card.featured .pc-features li::before{color:rgba(156,139,117,0.6);}
+.pricing-footnote{
+  margin:32px auto 0;
+  max-width:480px;
+  font-size:12px;color:var(--stone);
+  font-weight:300;line-height:1.7;
+  letter-spacing:0.02em;
+  text-align:center;
+}
+
+/* ── FAQ ── */
+.faq{
+  padding:0 0 100px;
+}
+.faq-list{max-width:640px;}
+.faq-item{
+  border-top:1px solid var(--ghost);
+}
+.faq-item:last-child{border-bottom:1px solid var(--ghost);}
+.faq-q{
+  width:100%;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:24px 0;
+  background:none;border:none;cursor:pointer;
+  font-family:'Cormorant Garamond',serif;
+  font-weight:300;font-size:18px;
+  color:var(--ink);
+  text-align:left;line-height:1.4;
+  gap:16px;
+  transition:color 0.2s;
+}
+.faq-q:hover{color:var(--stone);}
+.faq-icon{
+  font-size:20px;font-weight:300;
+  color:var(--stone);flex-shrink:0;
+  transition:transform 0.3s ease;
+  font-family:'Inter',sans-serif;
+}
+.faq-item.open .faq-icon{transform:rotate(45deg);}
+.faq-a{
+  display:none;
+  padding:0 0 24px;
+  font-size:14px;font-weight:300;
+  color:var(--mid);line-height:1.85;
+  max-width:560px;
+}
+.faq-item.open .faq-a{display:block;}
+
+/* ── BOTTOM CTA ── */
+.bottom-cta{
+  padding:0 0 100px;
+}
+.cta-headline{
+  font-family:'Cormorant Garamond',serif;
+  font-weight:300;font-style:italic;
+  font-size:clamp(32px,5vw,60px);
+  color:var(--ink);line-height:1.15;
+  margin-bottom:20px;max-width:640px;
+}
+.cta-sub{
+  font-size:14px;font-weight:300;
+  color:var(--mid);line-height:1.85;
+  max-width:380px;margin:0 auto 52px;
+  text-align:center;
+}
+
+/* ── FOOTER ── */
+footer{
+  padding:32px 0;
+  border-top:1px solid var(--ghost);
+  display:flex;align-items:center;
+  justify-content:space-between;flex-wrap:wrap;gap:12px;
+}
+
+.footer-logo{
+  font-family:'Cormorant Garamond',serif;
+  font-weight:300;font-style:italic;
+  font-size:16px;letter-spacing:0.06em;
+  color:var(--mid);
+}
+.footer-note{font-size:11px;color:var(--ghost);letter-spacing:0.04em;}
+
+/* ── REVEAL ── */
+.reveal{opacity:0;transform:translateY(14px);transition:opacity 0.9s ease,transform 0.9s ease;}
+.reveal.visible{opacity:1;transform:none;}
+@media(prefers-reduced-motion:reduce){*,.reveal{transition:none!important;animation:none!important;}}
+
+/* ── SECTION VERTICAL RHYTHM ── */
+.truth{ padding:100px 0; max-width:none; }
+.timeline{ padding:0 0 100px; }
+.pillars{ padding:0 0 100px; }
+.preview{ padding:0 0 100px; }
+.pricing{ padding:0 0 100px; }
+.faq{ padding:0 0 100px; }
+.bottom-cta{ padding:0 0 100px; text-align:center; }
+footer{
+  border-top:1px solid var(--ghost);
+  padding:28px 0;
+}
+.footer-logo{
+  font-family:'Cormorant Garamond',serif;
+  font-weight:300;font-style:italic;
+  font-size:15px;letter-spacing:0.06em;color:var(--mid);
+}
+.footer-note{font-size:11px;color:var(--ghost);letter-spacing:0.04em;}
+
+/* ── HERO centred ── */
+.hero .container{
+  width:100%;
+  max-width:860px;
+  margin:0 auto;
+  padding:80px clamp(24px,5vw,60px) 10vh;
+}
+</style>
+</head>
+<body>
+
+<!-- The journal margin line -->
+<div class="journal-line" id="jline"></div>
+
+<nav id="main-nav">
+  <span class="nav-spacer"></span>
+  <span class="nav-logo">Kepty</span>
+  <div class="nav-right">
+    <button class="nav-cta" onclick="focusForm()">Join the waitlist</button>
+  </div>
+</nav>
+
+<!-- ── HERO ── -->
+<section class="hero"><div class="container">
+  <h1 class="hero-headline">
+    Your child will know<br>
+    the parent you become.<br>
+    <span class="roman">Kepty lets them know<br>the person you are now.</span>
+  </h1>
+  <div class="hero-rule"></div>
+  <p class="hero-sub">
+    Write to them honestly. It will matter more than you think.<br>
+    They receive everything on their 18th birthday.<br>
+    Sealed. Private. Kept.
+  </p>
+
+  <div class="form-outer" id="wrap-top">
+    <div class="form-row" id="row-top">
+      <input type="email" id="email-top" placeholder="Your email address" autocomplete="email" aria-label="Email"/>
+      <button id="btn-top" onclick="handleSignup('top')">Join</button>
+    </div>
+    <p class="field-error" id="err-top">Please enter a valid email address.</p>
+    <p class="form-note">No commercial emails. Only one email from us when we open.</p>
+  </div>
+  <div class="success-msg" id="success-top">
+    You are on the list. We will write when Kepty opens.<br>
+    Think about what the first entry would say.
+  </div>
+
+  <div class="counter">
+    <div class="counter-dots">
+      <div class="counter-dot filled"></div>
+      <div class="counter-dot filled"></div>
+      <div class="counter-dot filled"></div>
+      <div class="counter-dot"></div>
+      <div class="counter-dot"></div>
+    </div>
+    <span id="count-display">147 parents</span> already waiting
+  </div>
+</div></section>
+
+<!-- ── TRUTH ── -->
+<section class="truth reveal"><div class="container">
+  <span class="section-marker">The idea</span>
+  <p class="truth-body">
+    Your child will love you. But with Kepty,
+    they will also know you; who you were, what you feared,
+    what you hoped for; before they were old enough to ask.
+    <em>The parent they will know at 18 is not the same person
+    holding them today.</em>
+    Write when something moves you. The rest is kept.
+  </p>
+</div></section>
+
+<!-- ── TIMELINE ── -->
+<section class="timeline reveal"><div class="container">
+  <span class="section-marker">From inside a vault</span>
+  <div class="tl-entry">
+    <div class="tl-year">2025<br>Day one</div>
+    <div class="tl-content">
+      <div class="tl-dot"></div>
+      <p class="tl-age">The morning after</p>
+      <p class="tl-msg">"You arrived at 6:42am. I did not know it was possible to love someone this much before they even existed. I did not sleep. Not because you cried. I just could not stop looking at you."</p>
+      <p class="tl-note">Written by dad</p>
+    </div>
+  </div>
+  <div class="tl-entry">
+    <div class="tl-year">2026<br>Age 1</div>
+    <div class="tl-content">
+      <div class="tl-dot"></div>
+      <p class="tl-age">First birthday</p>
+      <p class="tl-msg">"You took three steps today and fell. You looked at me to see if you should cry. I smiled. You smiled back. Then you tried again."</p>
+      <p class="tl-note">Written by mum</p>
+    </div>
+  </div>
+  <div class="tl-entry">
+    <div class="tl-year">2028<br>Age 3</div>
+    <div class="tl-content">
+      <div class="tl-dot"></div>
+      <p class="tl-age">A Sunday evening</p>
+      <p class="tl-msg">"You told me I was your best friend today. I am 32 years old. I did not expect to still need to hear that."</p>
+      <p class="tl-note">Note + photo</p>
+    </div>
+  </div>
+  <div class="tl-entry">
+    <div class="tl-year">2033<br>Age 8</div>
+    <div class="tl-content">
+      <div class="tl-dot"></div>
+      <p class="tl-age">Late at night</p>
+      <p class="tl-msg">"We argued for the first time this year. Properly argued. You were right and I was wrong. I did not tell you that then. I am telling you now."</p>
+      <p class="tl-note">Note</p>
+    </div>
+  </div>
+  <div class="tl-entry">
+    <div class="tl-year"></div>
+    <div class="tl-content" style="padding-bottom:36px;border-left:1px dashed var(--ghost);">
+      <div class="tl-dot" style="background:var(--ghost);border-color:var(--ghost);"></div>
+      <p style="font-size:18px;color:var(--ghost);letter-spacing:0.2em;padding-top:4px;">· · ·</p>
+    </div>
+  </div>
+  <div class="tl-entry">
+    <div class="tl-year">2039<br>Age 14</div>
+    <div class="tl-content">
+      <div class="tl-dot"></div>
+      <p class="tl-age">A Tuesday morning</p>
+      <p class="tl-msg">"You barely spoke to me this week. I know that is normal. I am writing this so you know I was not angry — I was just missing you, and you were still right there."</p>
+      <p class="tl-note">Note</p>
+    </div>
+  </div>
+  <div class="tl-entry">
+    <div class="tl-year">2043<br>Age 18</div>
+    <div class="tl-content">
+      <div class="tl-dot"></div>
+      <p class="tl-age">Their birthday</p>
+      <p class="tl-narrator">The vault opens. A password arrives. Every version of your parent, kept for this moment.</p>
+      <p class="tl-note">The day everything was written for</p>
+    </div>
+  </div>
+</div></section>
+
+<!-- ── PILLARS ── -->
+<section class="pillars reveal"><div class="container">
+  <span class="section-marker">Why Kepty is different</span>
+  <div class="pillar-item">
+    <div class="pillar-num-label">I</div>
+    <div class="pillar-text">
+      <h3>A portrait, not a highlight reel</h3>
+      <p>This is not a photo album. It is years of who you actually were; your doubts, your fears, your love at its most unguarded. The most honest thing you will ever give them.</p>
+    </div>
+  </div>
+  <div class="pillar-item">
+    <div class="pillar-num-label">II</div>
+    <div class="pillar-text">
+      <h3>They do not know it exists</h3>
+      <p>The child knows nothing until their 18th birthday. No performance. No audience. Just you, writing honestly, knowing they will only read it when they are old enough to understand.</p>
+    </div>
+  </div>
+  <div class="pillar-item">
+    <div class="pillar-num-label">III</div>
+    <div class="pillar-text">
+      <h3>Words, photos and videos</h3>
+      <p>Write when something moves you. Add a photo of the moment. Record a video of yourself talking to them. The vault holds all of it; text, image, and voice; until the day it opens.</p>
+    </div>
+  </div>
+  <div class="pillar-item">
+    <div class="pillar-num-label">IV</div>
+    <div class="pillar-text">
+      <h3>Write whenever you feel it</h3>
+      <p>Write at 2am after a hard day. Write when they say something you never want to forget. No schedule, no pressure; just write when the moment calls. We only send one reminder a year, on their birthday, to capture who you are right now.</p>
+    </div>
+  </div>
+</div></section>
+
+<!-- ── APP PREVIEW ── -->
+<section class="preview reveal"><div class="container--wide">
+  <span class="section-marker" style="text-align:center;display:block;">How it works</span>
+  <p class="preview-intro" style="text-align:center;margin-left:auto;margin-right:auto;">Write, photograph, record. Everything sealed until the day it matters most.</p>
+
+  <div class="phones">
+
+    <!-- Parent phone -->
+    <div class="phone-wrap">
+      <div class="phone">
+        <div class="pbar">
+          <span class="pbar-name">Kepty</span>
+          <span class="pbar-lock">⚿</span>
+        </div>
+        <div class="pbody" id="list-view">
+          <div class="entry-list-item" onclick="openWrite()">
+            <div class="eli-meta"><span>Day one · 2025</span><span>Note</span></div>
+            <p class="eli-preview">"You arrived at 6:42am. I did not know it was possible…"</p>
+          </div>
+          <div class="entry-list-item" onclick="openWrite()">
+            <div class="eli-meta"><span>Age 3 · 2028</span><span>Note + Photo</span></div>
+            <p class="eli-preview">"You told me I was your best friend today…"</p>
+            <div class="eli-thumb">
+              <img src="data:image/jpeg;base64,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" alt="A moment from childhood" style="width:100%;height:100%;object-fit:cover;object-position:center top;border-radius:4px;display:block;"/>
+            </div>
+          </div>
+          <button class="add-btn" onclick="openWrite()">+ Write an entry</button>
+        </div>
+        <div class="write-view" id="write-view">
+          <div class="write-back" onclick="closeWrite()">← Vault</div>
+          <div class="write-inner">
+            <p class="write-age-label">New entry — Age 8 · 2033</p>
+            <div class="write-type-row">
+              <button class="wt active" onclick="switchWt(this,'ta')">Write</button>
+              <button class="wt" onclick="switchWt(this,'pa')">Photo</button>
+              <button class="wt" onclick="switchWt(this,'va')">Video</button>
+            </div>
+            <div id="ta">
+              <textarea class="write-box" id="write-box" placeholder="Write to them. They will not read this until they turn 18…"></textarea>
+            </div>
+            <div id="pa" style="display:none;">
+              <div class="upload-area">
+                <div class="upload-icon">📷</div>
+                <p class="upload-label">Add a photo from today</p>
+              </div>
+            </div>
+            <div id="va" style="display:none;">
+              <div class="upload-area">
+                <div class="upload-icon">🎥</div>
+                <p class="upload-label">Record a video message</p>
+              </div>
+            </div>
+            <button class="keep-btn" onclick="saveEntry()">Keep this entry</button>
+          </div>
+        </div>
+      </div>
+      <p class="phone-label">Parent — writing view</p>
+    </div>
+
+    <!-- Child unlock phone -->
+    <div class="phone-wrap">
+      <div class="phone">
+        <div class="pbar">
+          <span class="pbar-name">Kepty</span>
+          <span class="pbar-lock" id="pbar-lock">🔒</span>
+        </div>
+        <div class="unlock-body">
+          <div class="unlock-icon" id="u-icon">🔒</div>
+          <p class="unlock-title" id="u-title">Happy 18th, Sofia</p>
+          <p class="unlock-sub" id="u-sub">Your parents have been writing to you since you were born. Enter your birthday key.</p>
+          <input class="unlock-input" id="u-key" type="text" placeholder="· · · · · · · ·" maxlength="8"/>
+          <button class="unlock-btn" onclick="unlockVault()">Open my vault</button>
+        </div>
+      </div>
+      <p class="phone-label">Child — 18th birthday</p>
+    </div>
+
+  </div>
+  <p class="preview-note" style="text-align:center;margin:40px auto 0;">Interactive preview — tap the parent screen to write. Enter any code to open Sofia's vault.</p>
+</div></section>
+
+<!-- ── PRICING ── -->
+<section class="pricing reveal"><div class="container" style="text-align:center;">
+  <span class="section-marker" style="text-align:center;">Pricing</span>
+  <div class="pricing-grid">
+    <div class="pricing-card" style="text-align:left;">
+      <p class="pc-plan">Monthly</p>
+      <div class="pc-amount"><sup>€</sup>4.99</div>
+      <p class="pc-period">per month · cancel any time</p>
+      <ul class="pc-features">
+        <li>Notes, photos and videos</li>
+        <li>Both parents can write</li>
+        <li>Sealed until their 18th</li>
+        <li>Birthday reminder every year</li>
+        <li>Writing prompts by age</li>
+      </ul>
+    </div>
+    <div class="pricing-card featured" style="text-align:left;">
+      <span class="founding">First 200 families</span>
+      <p class="pc-plan">Lifetime</p>
+      <div class="pc-amount"><sup>€</sup>199</div>
+      <p class="pc-period">one payment · €299 after</p>
+      <ul class="pc-features">
+        <li>Everything in monthly</li>
+        <li>Printed book delivered at 18</li>
+        <li>Legacy transfer if needed</li>
+        <li>No subscription. No renewal risk.</li>
+        <li>Founding price, never available again</li>
+      </ul>
+    </div>
+  </div>
+  <p class="pricing-footnote">
+    Your entries are encrypted. We cannot read them.<br>
+    If Kepty ever closes, you receive a full export 90 days in advance.
+  </p>
+</div></section>
+
+<!-- ── BOTTOM CTA ── -->
+<!-- ── FAQ ── -->
+<section class="faq reveal"><div class="container">
+  <span class="section-marker">Questions</span>
+  <div class="faq-list">
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        Can anyone read my entries, including Kepty?
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-a">
+        No. Your entries are encrypted the moment you write them. Nobody at Kepty can read them; not our team, not our servers, not anyone. Only you have access while you write. Your child receives access on their 18th birthday, and nobody else ever does.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        Can my child accidentally discover this?
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-a">
+        No. Kepty is entirely separate from any account your child has. There is no app on their phone, no notification, no email. Nothing exists for them until the day they turn 18, when they receive a single email with their access key. Until that day, it is completely invisible to them.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        What if I start when my child is already older?
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-a">
+        You can start at any age, from birth to seventeen. The vault opens on their 18th birthday regardless of when you begin. A parent who starts at age ten still gives their child eight years of who they were. That is still a portrait most people never receive.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        Can both parents write?
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-a">
+        Yes. You can invite a second parent, a co-parent, or a guardian to write in the same vault. Each parent has their own entries. Your child receives everything from both on their 18th birthday; two voices, one vault.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        If I cancel my monthly plan, do I lose my entries?
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-a">
+        No. If you pause or cancel, your entries are kept safely. You will not be able to add new ones until you reactivate, but nothing is ever deleted. We hold what you have written for as long as you need.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        What happens if Kepty closes down?
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-a">
+        If we ever make the decision to close, we commit to sending every parent a full export of their entries; every note, photo, and video; at least 90 days before we shut down. Your entries belong to you, not to us. We will never disappear without giving you everything back first.
+      </div>
+    </div>
+
+  </div>
+</div></section>
+
+<section class="bottom-cta reveal"><div class="container" style="text-align:center;">
+  <span class="section-marker" style="text-align:center;">Join the waitlist</span>
+  <h2 class="cta-headline">Start with one entry.<br>The rest will follow.</h2>
+  <p class="cta-sub">Kepty opens later this year to its first 200 families. One email when we open. Nothing else.</p>
+
+  <div class="form-outer" id="wrap-bottom" style="max-width:400px;margin:0 auto;">
+    <div class="form-row" id="row-bottom">
+      <input type="email" id="email-bottom" placeholder="Your email address" autocomplete="email" aria-label="Email"/>
+      <button id="btn-bottom" onclick="handleSignup('bottom')">Join</button>
+    </div>
+    <p class="field-error" id="err-bottom">Please enter a valid email address.</p>
+    <p class="form-note">No commercial emails. Only one email from us when we open.</p>
+  </div>
+  <div class="success-msg" id="success-bottom" style="max-width:400px;margin:0 auto;">
+    You are on the list. We will write when Kepty opens. One email, nothing else.
+  </div>
+</div></section>
+
+<footer><div class="container" style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;">
+  <span class="footer-logo">Kepty</span>
+  <span class="footer-note">© 2025 Kepty · kepty.app · Encrypted. Private.</span>
+</div></footer>
+
+<script>
+const BREVO_API_KEY = 'YOUR_BREVO_API_KEY_HERE';
+const BREVO_LIST_ID = 0;
+
+// Journal line appears on scroll
+window.addEventListener('scroll', () => {
+  const jl = document.getElementById('jline');
+  if (window.scrollY > 80) jl.classList.add('visible');
+  document.getElementById('main-nav').classList.toggle('scrolled', window.scrollY > 40);
+});
+
+// Reveal on scroll
+const ro = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting){ e.target.classList.add('visible'); ro.unobserve(e.target); }});
+}, { threshold:0.06 });
+document.querySelectorAll('.reveal').forEach(el => ro.observe(el));
+
+// Focus form
+function focusForm() {
+  const el = document.getElementById('email-top');
+  el.scrollIntoView({ behavior:'smooth', block:'center' });
+  setTimeout(() => el.focus(), 600);
+}
+
+// Email
+function isValidEmail(e){ return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(e.trim()); }
+document.querySelectorAll('input[type=email]').forEach(inp => {
+  inp.addEventListener('keydown', e => { if(e.key==='Enter') handleSignup(inp.id==='email-top'?'top':'bottom'); });
+  inp.addEventListener('input', () => {
+    const s=inp.id==='email-top'?'top':'bottom';
+    document.getElementById('row-'+s).classList.remove('error');
+    document.getElementById('err-'+s).classList.remove('visible');
+  });
+});
+
+async function handleSignup(s) {
+  const eEl=document.getElementById('email-'+s), bEl=document.getElementById('btn-'+s),
+        rEl=document.getElementById('row-'+s), errEl=document.getElementById('err-'+s),
+        wEl=document.getElementById('wrap-'+s), suEl=document.getElementById('success-'+s);
+  const email=eEl.value.trim();
+  if(!isValidEmail(email)){ rEl.classList.add('error'); errEl.classList.add('visible'); eEl.focus(); return; }
+  bEl.disabled=true; bEl.textContent='…';
+  try {
+    const res=await fetch('https://api.brevo.com/v3/contacts',{
+      method:'POST',
+      headers:{'accept':'application/json','content-type':'application/json','api-key':BREVO_API_KEY},
+      body:JSON.stringify({email,listIds:[BREVO_LIST_ID],updateEnabled:true})
+    });
+    if(res.status===201||res.status===204){showSuccess(wEl,suEl);bump();}
+    else{
+      const b=await res.json().catch(()=>({}));
+      if(b.code==='duplicate_parameter') showSuccess(wEl,suEl);
+      else throw new Error(b.message||'error');
+    }
+  } catch(err){
+    bEl.disabled=false; bEl.textContent='Begin';
+    rEl.classList.add('error');
+    errEl.textContent='Something went wrong. Please try again.';
+    errEl.classList.add('visible');
+  }
+}
+function showSuccess(w,s){ w.style.display='none'; s.style.display='block'; }
+function bump(){
+  const el=document.getElementById('count-display');
+  if(!el) return;
+  const n=parseInt(el.textContent)||147;
+  el.textContent=(n+1)+' parents';
+}
+
+// FAQ toggle
+function toggleFaq(btn) {
+  const item = btn.closest('.faq-item');
+  const isOpen = item.classList.contains('open');
+  document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+  if (!isOpen) item.classList.add('open');
+}
+
+function openWrite(){
+  document.getElementById('list-view').style.display='none';
+  document.getElementById('write-view').style.display='block';
+}
+function closeWrite(){
+  document.getElementById('list-view').style.display='block';
+  document.getElementById('write-view').style.display='none';
+}
+function switchWt(btn,area){
+  document.querySelectorAll('.wt').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  ['ta','pa','va'].forEach(id=>{ document.getElementById(id).style.display=id===area?'block':'none'; });
+}
+function saveEntry(){
+  const txt=document.getElementById('write-box').value.trim();
+  if(!txt){ document.getElementById('write-box').style.borderBottomColor='var(--error)'; return; }
+  document.getElementById('write-box').style.borderBottomColor='';
+  closeWrite();
+  const list=document.getElementById('list-view');
+  const saved=document.createElement('div');
+  saved.className='entry-list-item';
+  saved.style.borderLeft='2px solid var(--stone)';
+  saved.style.paddingLeft='12px';
+  saved.innerHTML=`<div class="eli-meta"><span>Age 8 · just now</span><span>Note</span></div><p class="eli-preview">"${txt.slice(0,55)}${txt.length>55?'…':''}"</p>`;
+  list.insertBefore(saved,list.firstChild);
+  document.getElementById('write-box').value='';
+}
+function unlockVault(){
+  const key=document.getElementById('u-key').value;
+  if(key.length<4){
+    document.getElementById('u-key').style.borderColor='rgba(255,100,100,0.4)';
+    setTimeout(()=>{ document.getElementById('u-key').style.borderColor=''; },700);
+    return;
+  }
+  document.getElementById('u-icon').textContent='🔓';
+  document.getElementById('u-title').textContent='Welcome, Sofia.';
+  document.getElementById('u-sub').innerHTML='<span style="font-family:Cormorant Garamond,serif;font-style:italic;font-size:14px;color:rgba(247,245,240,0.65);line-height:1.7;">Your parents wrote to you 23 times. From the day you were born. Every word was kept for this moment.</span>';
+  document.getElementById('u-key').style.display='none';
+  document.querySelector('.unlock-btn').textContent='Read my vault →';
+  document.getElementById('pbar-lock').textContent='🔓';
+}
+</script>
+</body>
+</html>
