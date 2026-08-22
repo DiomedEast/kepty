@@ -724,7 +724,12 @@ footer{
 <div class="journal-line" id="jline"></div>
 
 <nav id="main-nav">
-  <span class="nav-spacer"></span>
+  <div style="flex:1;display:flex;align-items:center;gap:8px;">
+    <a href="/index.html" style="font-size:10px;font-weight:500;letter-spacing:0.14em;color:var(--stone);text-decoration:none;padding-bottom:1px;border-bottom:1px solid var(--stone);transition:all 0.2s;">EN</a>
+    <span style="font-size:10px;color:var(--ghost);">|</span>
+    <a href="/fr.html" style="font-size:10px;font-weight:500;letter-spacing:0.14em;color:var(--muted);text-decoration:none;padding-bottom:1px;border-bottom:1px solid transparent;transition:all 0.2s;">FR</a>
+  </div>
+  <span style="flex:0;width:0;"></span>
   <span class="nav-logo">Kepty</span>
   <div class="nav-right">
     <button class="nav-cta" onclick="focusForm()">Join the waitlist</button>
@@ -1245,9 +1250,6 @@ function unlockVault(){
   </div>
 </section>
 
-<div style="position:fixed;bottom:24px;right:24px;z-index:200;display:flex;gap:8px;">
-  <a href="/index.html" style="font-size:11px;font-weight:500;letter-spacing:0.12em;color:var(--ink);text-decoration:none;padding:6px 12px;border:1px solid var(--ghost);background:var(--paper);opacity:1;">EN</a>
-  <a href="/fr.html" style="font-size:11px;font-weight:500;letter-spacing:0.12em;color:var(--muted);text-decoration:none;padding:6px 12px;border:1px solid var(--ghost);background:var(--paper);opacity:0.6;">FR</a>
-</div>
+
 </body>
 </html>
