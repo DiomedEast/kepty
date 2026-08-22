@@ -790,6 +790,87 @@ footer{
   </p>
 </div></section>
 
+<!-- ── APP PREVIEW ── -->
+<section class="preview reveal"><div class="container--wide">
+  <span class="section-marker" style="text-align:center;display:block;">Comment ça marche</span>
+  <p class="preview-intro" style="text-align:center;margin-left:auto;margin-right:auto;">Écrivez, photographiez, enregistrez. Tout scellé jusqu'au jour où cela compte le plus.</p>
+
+  <div class="phones">
+
+    <!-- Parent phone -->
+    <div class="phone-wrap">
+      <div class="phone">
+        <div class="pbar">
+          <span class="pbar-name">Kepty</span>
+          <span class="pbar-lock">⚿</span>
+        </div>
+        <div class="pbody" id="list-view">
+          <div class="entry-list-item" onclick="openÉcrire()">
+            <div class="eli-meta"><span>Jour J · 2025</span><span>Note</span></div>
+            <p class="eli-preview">"Tu es arrivé à 6h42. Je ne savais pas qu'il était possible…"</p>
+          </div>
+          <div class="entry-list-item" onclick="openÉcrire()">
+            <div class="eli-meta"><span>Âge 3 · 2028</span><span>Note + Photo</span></div>
+            <p class="eli-preview">"Tu m'as dit aujourd'hui que j'étais ton meilleur ami…"</p>
+            <div class="eli-thumb">
+              <img src="data:image/jpeg;base64,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" alt="A moment from childhood" style="width:100%;height:100%;object-fit:cover;object-position:center top;border-radius:4px;display:block;"/>
+            </div>
+          </div>
+          <button class="add-btn" onclick="openÉcrire()">+ Écrire une entrée</button>
+        </div>
+        <div class="write-view" id="write-view">
+          <div class="write-back" onclick="closeÉcrire()">← Coffre</div>
+          <div class="write-inner">
+            <p class="write-age-label">Nouvelle entrée — Âge 8 · 2033</p>
+            <div class="write-type-row">
+              <button class="wt active" onclick="switchWt(this,'ta')">Écrire</button>
+              <button class="wt" onclick="switchWt(this,'pa')">Photo</button>
+              <button class="wt" onclick="switchWt(this,'va')">Vidéo</button>
+            </div>
+            <div id="ta">
+              <textarea class="write-box" id="write-box" placeholder="Écrire to them. They will not read this until they turn 18…"></textarea>
+            </div>
+            <div id="pa" style="display:none;">
+              <div class="upload-area">
+                <div class="upload-icon">📷</div>
+                <p class="upload-label">Ajouter une photo d'aujourd'hui</p>
+              </div>
+            </div>
+            <div id="va" style="display:none;">
+              <div class="upload-area">
+                <div class="upload-icon">🎥</div>
+                <p class="upload-label">Enregistrer un message vidéo</p>
+              </div>
+            </div>
+            <button class="keep-btn" onclick="saveEntry()">Garder cette entrée</button>
+          </div>
+        </div>
+      </div>
+      <p class="phone-label">Parent — vue d'écriture</p>
+    </div>
+
+    <!-- Child unlock phone -->
+    <div class="phone-wrap">
+      <div class="phone">
+        <div class="pbar">
+          <span class="pbar-name">Kepty</span>
+          <span class="pbar-lock" id="pbar-lock">🔒</span>
+        </div>
+        <div class="unlock-body">
+          <div class="unlock-icon" id="u-icon">🔒</div>
+          <p class="unlock-title" id="u-title">Joyeux 18e anniversaire, Sofia</p>
+          <p class="unlock-sub" id="u-sub">Vos parents vous écrivent depuis votre naissance. Entrez votre clé d'anniversaire.</p>
+          <input class="unlock-input" id="u-key" type="text" placeholder="· · · · · · · ·" maxlength="8"/>
+          <button class="unlock-btn" onclick="unlockVault()">Ouvrir mon coffre</button>
+        </div>
+      </div>
+      <p class="phone-label">Enfant — 18e anniversaire</p>
+    </div>
+
+  </div>
+  <p class="preview-note" style="text-align:center;margin:40px auto 0;">Aperçu interactif — appuyez sur l'écran parent pour écrire. Entrez n'importe quel code pour ouvrir le coffre de Sofia.</p>
+</div></section>
+
 <!-- ── TIMELINE ── -->
 <section class="timeline reveal"><div class="container">
   <span class="section-marker">De l'intérieur d'un coffre</span>
@@ -897,86 +978,6 @@ Kepty est toujours dans votre poche. Le moment que vous souhaitez capturer ne s'
   </div>
 </div></section>
 
-<!-- ── APP PREVIEW ── -->
-<section class="preview reveal"><div class="container--wide">
-  <span class="section-marker" style="text-align:center;display:block;">Comment ça marche</span>
-  <p class="preview-intro" style="text-align:center;margin-left:auto;margin-right:auto;">Écrivez, photographiez, enregistrez. Tout scellé jusqu'au jour où cela compte le plus.</p>
-
-  <div class="phones">
-
-    <!-- Parent phone -->
-    <div class="phone-wrap">
-      <div class="phone">
-        <div class="pbar">
-          <span class="pbar-name">Kepty</span>
-          <span class="pbar-lock">⚿</span>
-        </div>
-        <div class="pbody" id="list-view">
-          <div class="entry-list-item" onclick="openÉcrire()">
-            <div class="eli-meta"><span>Jour J · 2025</span><span>Note</span></div>
-            <p class="eli-preview">"Tu es arrivé à 6h42. Je ne savais pas qu'il était possible…"</p>
-          </div>
-          <div class="entry-list-item" onclick="openÉcrire()">
-            <div class="eli-meta"><span>Âge 3 · 2028</span><span>Note + Photo</span></div>
-            <p class="eli-preview">"Tu m'as dit aujourd'hui que j'étais ton meilleur ami…"</p>
-            <div class="eli-thumb">
-              <img src="data:image/jpeg;base64,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" alt="A moment from childhood" style="width:100%;height:100%;object-fit:cover;object-position:center top;border-radius:4px;display:block;"/>
-            </div>
-          </div>
-          <button class="add-btn" onclick="openÉcrire()">+ Écrire une entrée</button>
-        </div>
-        <div class="write-view" id="write-view">
-          <div class="write-back" onclick="closeÉcrire()">← Coffre</div>
-          <div class="write-inner">
-            <p class="write-age-label">Nouvelle entrée — Âge 8 · 2033</p>
-            <div class="write-type-row">
-              <button class="wt active" onclick="switchWt(this,'ta')">Écrire</button>
-              <button class="wt" onclick="switchWt(this,'pa')">Photo</button>
-              <button class="wt" onclick="switchWt(this,'va')">Vidéo</button>
-            </div>
-            <div id="ta">
-              <textarea class="write-box" id="write-box" placeholder="Écrire to them. They will not read this until they turn 18…"></textarea>
-            </div>
-            <div id="pa" style="display:none;">
-              <div class="upload-area">
-                <div class="upload-icon">📷</div>
-                <p class="upload-label">Ajouter une photo d'aujourd'hui</p>
-              </div>
-            </div>
-            <div id="va" style="display:none;">
-              <div class="upload-area">
-                <div class="upload-icon">🎥</div>
-                <p class="upload-label">Enregistrer un message vidéo</p>
-              </div>
-            </div>
-            <button class="keep-btn" onclick="saveEntry()">Garder cette entrée</button>
-          </div>
-        </div>
-      </div>
-      <p class="phone-label">Parent — vue d'écriture</p>
-    </div>
-
-    <!-- Child unlock phone -->
-    <div class="phone-wrap">
-      <div class="phone">
-        <div class="pbar">
-          <span class="pbar-name">Kepty</span>
-          <span class="pbar-lock" id="pbar-lock">🔒</span>
-        </div>
-        <div class="unlock-body">
-          <div class="unlock-icon" id="u-icon">🔒</div>
-          <p class="unlock-title" id="u-title">Joyeux 18e anniversaire, Sofia</p>
-          <p class="unlock-sub" id="u-sub">Vos parents vous écrivent depuis votre naissance. Entrez votre clé d'anniversaire.</p>
-          <input class="unlock-input" id="u-key" type="text" placeholder="· · · · · · · ·" maxlength="8"/>
-          <button class="unlock-btn" onclick="unlockVault()">Ouvrir mon coffre</button>
-        </div>
-      </div>
-      <p class="phone-label">Enfant — 18e anniversaire</p>
-    </div>
-
-  </div>
-  <p class="preview-note" style="text-align:center;margin:40px auto 0;">Aperçu interactif — appuyez sur l'écran parent pour écrire. Entrez n'importe quel code pour ouvrir le coffre de Sofia.</p>
-</div></section>
 
 <!-- ── PRICING ── -->
 <section class="pricing reveal"><div class="container" style="text-align:center;">
