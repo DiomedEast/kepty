@@ -750,14 +750,16 @@ footer{
     Sealed. Private. Kept.
   </p>
 
-  <div class="form-outer" id="wrap-top">
-    <div class="form-row" id="row-top">
-      <input type="email" id="email-top" placeholder="Your email address" autocomplete="email" aria-label="Email"/>
-      <button id="btn-top" onclick="handleSignup('top')">Join</button>
+    <form class="form-outer" id="wrap-top" method="POST" action="https://42e28915.sibforms.com/serve/MUIFAB5ei3Xc1oMTgUtWe-RMez3yj7RBk5uLCPxK_lo7FgIVPeF14FTBqyMsnsQlWeCH6aeIQ3BRwGSmLgVEIVVbbTkM5MUeo2dQrF1S45lSTmPAazBIWAAPLgBQjZFTpwcwr7u_QmrERIgqP6xKRcQ7D7UC9lITXRFNwQWyXvsEybEY6AyeR6lJ7q8_rKTL2QbR_fyNpQ7vcUy9_g==" target="_blank">
+    <div class="form-row">
+      <input type="email" name="EMAIL" id="email-top" placeholder="Your email address" autocomplete="email" aria-label="Email" required/>
+      <input type="hidden" name="email_address_check" value="">
+      <input type="hidden" name="locale" value="en">
+      <input type="hidden" name="html_type" value="simple">
+      <button type="submit" id="btn-top">Join</button>
     </div>
-    <p class="field-error" id="err-top">Please enter a valid email address.</p>
     <p class="form-note">No commercial emails. Only one email from us when we open.</p>
-  </div>
+  </form>
   <div class="success-msg" id="success-top">
     You are on the list. We will write when Kepty opens.<br>
     Think about what the first entry would say.

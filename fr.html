@@ -749,14 +749,16 @@ footer{
     Scellés. Intimes. Conservés pour lui.
   </p>
 
-  <div class="form-outer" id="wrap-top">
-    <div class="form-row" id="row-top">
-      <input type="email" id="email-top" placeholder="Votre adresse email" autocomplete="email" aria-label="Email"/>
-      <button id="btn-top" onclick="handleSignup('top')">Rejoindre</button>
+    <form class="form-outer" id="wrap-top" method="POST" action="https://42e28915.sibforms.com/serve/MUIFAB5ei3Xc1oMTgUtWe-RMez3yj7RBk5uLCPxK_lo7FgIVPeF14FTBqyMsnsQlWeCH6aeIQ3BRwGSmLgVEIVVbbTkM5MUeo2dQrF1S45lSTmPAazBIWAAPLgBQjZFTpwcwr7u_QmrERIgqP6xKRcQ7D7UC9lITXRFNwQWyXvsEybEY6AyeR6lJ7q8_rKTL2QbR_fyNpQ7vcUy9_g==" target="_blank">
+    <div class="form-row">
+      <input type="email" name="EMAIL" id="email-top" placeholder="Votre adresse email" autocomplete="email" aria-label="Email" required/>
+      <input type="hidden" name="email_address_check" value="">
+      <input type="hidden" name="locale" value="fr">
+      <input type="hidden" name="html_type" value="simple">
+      <button type="submit" id="btn-top">Rejoindre</button>
     </div>
-    <p class="field-error" id="err-top">Veuillez entrer une adresse email valide.</p>
-    <p class="form-note">Aucun email commercial. Un seul email de notre part à l'ouverture.</p>
-  </div>
+    <p class="form-note">No commercial emails. Only one email from us when we open.</p>
+  </form>
   <div class="success-msg" id="success-top">
     Vous êtes sur la liste. Nous vous écrirons à l'ouverture de Kepty.<br>
     Pensez à ce que serait votre première entrée.
