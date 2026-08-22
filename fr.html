@@ -755,6 +755,7 @@ footer{
       <input type="hidden" name="email_address_check" value="">
       <input type="hidden" name="locale" value="fr">
       <input type="hidden" name="html_type" value="simple">
+      <input type="hidden" name="redirect_url" value="https://kepty.app/fr.html?joined=true">
       <button type="submit" id="btn-top">Rejoindre</button>
     </div>
     <p class="form-note">No commercial emails. Only one email from us when we open.</p>
@@ -1224,6 +1225,21 @@ function unlockVault(){
   document.querySelector('.unlock-btn').textContent='Lire mon coffre →';
   document.getElementById('pbar-lock').textContent='🔓';
 }
+
+// Show success message if redirected back from Brevo
+if (window.location.search.includes('joined=true')) {
+  ['wrap-top','wrap-bottom'].forEach(id => {
+    const w = document.getElementById(id);
+    if (w) w.style.display = 'none';
+  });
+  ['success-top','success-bottom'].forEach(id => {
+    const s = document.getElementById(id);
+    if (s) s.style.display = 'block';
+  });
+  // Clean URL
+  window.history.replaceState({}, '', window.location.pathname);
+}
+
 </script>
 
 <!-- ── PRIVACY POLICY ── -->
