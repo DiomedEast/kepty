@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<meta name="description" content="Your child will know the parent you become. Kepty lets them know the person you are now."/>
-<title>Kepty</title>
+<meta name="description" content="Votre enfant vous connaîtra comme parent. Kepty leur permet de vous connaître comme personne."/>
+<title>Kepty — Une lettre sur 18 ans.</title>
 <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,wght@0,400;0,500;1,400&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Inter:wght@300;400&display=swap" rel="stylesheet"/>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
@@ -683,7 +683,7 @@ footer{
   font-size:16px;letter-spacing:0.06em;
   color:var(--mid);
 }
-.footer-note{font-size:11px;color:var(--ghost);letter-spacing:0.04em;}
+.footer-note{font-size:11px;color:var(--stone);letter-spacing:0.04em;}
 
 /* ── REVEAL ── */
 .reveal{opacity:0;transform:translateY(14px);transition:opacity 0.9s ease,transform 0.9s ease;}
@@ -707,7 +707,7 @@ footer{
   font-weight:300;font-style:italic;
   font-size:15px;letter-spacing:0.06em;color:var(--mid);
 }
-.footer-note{font-size:11px;color:var(--ghost);letter-spacing:0.04em;}
+.footer-note{font-size:11px;color:var(--stone);letter-spacing:0.04em;}
 
 /* ── HERO centred ── */
 .hero .container{
@@ -727,35 +727,36 @@ footer{
   <span class="nav-spacer"></span>
   <span class="nav-logo">Kepty</span>
   <div class="nav-right">
-    <button class="nav-cta" onclick="focusForm()">Join the waitlist</button>
+    <button class="nav-cta" onclick="focusForm()">Rejoindre la liste</button>
   </div>
 </nav>
 
 <!-- ── HERO ── -->
 <section class="hero"><div class="container">
   <h1 class="hero-headline">
-    Your child will know<br>
-    the parent you become.<br>
-    <span class="roman">Kepty lets them know<br>the person you are now.</span>
+    Votre enfant connaîtra le parent que vous deviendrez.<br>
+    <span class="roman">Kepty lui permettra de découvrir la personne que vous êtes aujourd'hui.</span><br>
+    <span style="font-size:clamp(16px,2.2vw,36px);font-style:normal;color:var(--muted);">Vos pensées. Vos émotions. Vos rêves.<br>
+    Une partie de vous qu'il pourra retrouver, un jour, lorsqu'il sera assez grand pour comprendre.</span>
   </h1>
   <div class="hero-rule"></div>
   <p class="hero-sub">
-    Write to them honestly. It will matter more than you think.<br>
-    They receive everything on their 18th birthday.<br>
-    Sealed. Private. Kept.
+    Écrivez-lui avec sincérité. Un jour, ces mots compteront bien plus que vous ne l'imaginez.<br>
+    <strong>À ses 18 ans, il découvrira tout ce que vous lui avez écrit.</strong><br>
+    Scellés. Intimes. Conservés pour lui.
   </p>
 
   <div class="form-outer" id="wrap-top">
     <div class="form-row" id="row-top">
-      <input type="email" id="email-top" placeholder="Your email address" autocomplete="email" aria-label="Email"/>
-      <button id="btn-top" onclick="handleSignup('top')">Join</button>
+      <input type="email" id="email-top" placeholder="Votre adresse email" autocomplete="email" aria-label="Email"/>
+      <button id="btn-top" onclick="handleSignup('top')">Rejoindre</button>
     </div>
-    <p class="field-error" id="err-top">Please enter a valid email address.</p>
-    <p class="form-note">No commercial emails. Only one email from us when we open.</p>
+    <p class="field-error" id="err-top">Veuillez entrer une adresse email valide.</p>
+    <p class="form-note">Aucun email commercial. Un seul email de notre part à l'ouverture.</p>
   </div>
   <div class="success-msg" id="success-top">
-    You are on the list. We will write when Kepty opens.<br>
-    Think about what the first entry would say.
+    Vous êtes sur la liste. Nous vous écrirons à l'ouverture de Kepty.<br>
+    Pensez à ce que serait votre première entrée.
   </div>
 
   <div class="counter">
@@ -766,59 +767,57 @@ footer{
       <div class="counter-dot"></div>
       <div class="counter-dot"></div>
     </div>
-    <span id="count-display">147 parents</span> already waiting
+    <span id="count-display">147 parents</span> déjà inscrits
   </div>
 </div></section>
 
 <!-- ── TRUTH ── -->
 <section class="truth reveal"><div class="container">
-  <span class="section-marker">The idea</span>
+  <span class="section-marker">L'idée</span>
   <p class="truth-body">
-    Your child will love you. But with Kepty,
-    they will also know you; who you were, what you feared,
-    what you hoped for; before they were old enough to ask.
-    <em>The parent they will know at 18 is not the same person
-    holding them today.</em>
-    Write when something moves you. The rest is kept.
+    Votre enfant vous aimera pour le parent que vous serez. Avec Kepty, il découvrira aussi la personne que vous êtes aujourd'hui.
+    <em>Vos peurs. Vos espoirs. Vos rêves. Tout ce que vous ressentez aujourd'hui, avant même qu'il soit assez grand pour vous le demander.</em>
+    Écrivez lorsque quelque chose vous touche. Chaque mot est précieusement conservé jusqu'à ses 18 ans.
+    Et un jour, il pourra découvrir bien plus que le parent qu'il connaît : la personne que vous étiez, à travers vos propres mots.
   </p>
 </div></section>
 
 <!-- ── TIMELINE ── -->
 <section class="timeline reveal"><div class="container">
-  <span class="section-marker">From inside a vault</span>
+  <span class="section-marker">De l'intérieur d'un coffre</span>
   <div class="tl-entry">
-    <div class="tl-year">2025<br>Day one</div>
+    <div class="tl-year">2025<br>Jour J</div>
     <div class="tl-content">
       <div class="tl-dot"></div>
-      <p class="tl-age">The morning after</p>
-      <p class="tl-msg">"You arrived at 6:42am. I did not know it was possible to love someone this much before they even existed. I did not sleep. Not because you cried. I just could not stop looking at you."</p>
-      <p class="tl-note">Written by dad</p>
+      <p class="tl-age">Le lendemain matin</p>
+      <p class="tl-msg">"Tu es arrivé à 6h42. Je ne savais pas qu'il était possible d'aimer quelqu'un autant avant même qu'il existe. Je n'ai pas dormi. Pas parce que tu pleurais. Je n'arrivais tout simplement pas à cesser de te regarder."</p>
+      <p class="tl-note">Écrit par papa</p>
     </div>
   </div>
   <div class="tl-entry">
-    <div class="tl-year">2026<br>Age 1</div>
+    <div class="tl-year">2026<br>Âge 1</div>
     <div class="tl-content">
       <div class="tl-dot"></div>
-      <p class="tl-age">First birthday</p>
-      <p class="tl-msg">"You took three steps today and fell. You looked at me to see if you should cry. I smiled. You smiled back. Then you tried again."</p>
-      <p class="tl-note">Written by mum</p>
+      <p class="tl-age">Premier anniversaire</p>
+      <p class="tl-msg">"Tu as fait trois pas aujourd'hui et tu es tombé. Tu m'as regardé pour savoir si tu devais pleurer. J'ai souri. Tu m'as souri en retour. Puis tu as réessayé."</p>
+      <p class="tl-note">Écrit par maman</p>
     </div>
   </div>
   <div class="tl-entry">
-    <div class="tl-year">2028<br>Age 3</div>
+    <div class="tl-year">2028<br>Âge 3</div>
     <div class="tl-content">
       <div class="tl-dot"></div>
-      <p class="tl-age">A Sunday evening</p>
-      <p class="tl-msg">"You told me I was your best friend today. I am 32 years old. I did not expect to still need to hear that."</p>
+      <p class="tl-age">Un dimanche soir</p>
+      <p class="tl-msg">"Tu m'as dit aujourd'hui que j'étais ton meilleur ami. J'ai 32 ans. Je ne m'attendais pas à avoir encore besoin de l'entendre."</p>
       <p class="tl-note">Note + photo</p>
     </div>
   </div>
   <div class="tl-entry">
-    <div class="tl-year">2033<br>Age 8</div>
+    <div class="tl-year">2033<br>Âge 8</div>
     <div class="tl-content">
       <div class="tl-dot"></div>
-      <p class="tl-age">Late at night</p>
-      <p class="tl-msg">"We argued for the first time this year. Properly argued. You were right and I was wrong. I did not tell you that then. I am telling you now."</p>
+      <p class="tl-age">Tard le soir</p>
+      <p class="tl-msg">"Nous nous sommes disputés pour la première fois cette année. Vraiment disputés. Tu avais raison et j'avais tort. Je ne te l'ai pas dit alors. Je te le dis maintenant."</p>
       <p class="tl-note">Note</p>
     </div>
   </div>
@@ -830,69 +829,70 @@ footer{
     </div>
   </div>
   <div class="tl-entry">
-    <div class="tl-year">2039<br>Age 14</div>
+    <div class="tl-year">2039<br>Âge 14</div>
     <div class="tl-content">
       <div class="tl-dot"></div>
-      <p class="tl-age">A Tuesday morning</p>
-      <p class="tl-msg">"You barely spoke to me this week. I know that is normal. I am writing this so you know I was not angry. I was just missing you, and you were still right there."</p>
+      <p class="tl-age">Un mardi matin</p>
+      <p class="tl-msg">"Tu m'as à peine parlé cette semaine. Je sais que c'est normal. J'écris ceci pour que tu saches que je n'étais pas en colère. Tu me manquais, et tu étais encore là."</p>
       <p class="tl-note">Note</p>
     </div>
   </div>
   <div class="tl-entry">
-    <div class="tl-year">2043<br>Age 18</div>
+    <div class="tl-year">2043<br>18 ans</div>
     <div class="tl-content">
       <div class="tl-dot"></div>
-      <p class="tl-age">Their birthday</p>
-      <p class="tl-narrator">The vault opens. A password arrives. Every version of your parent, kept for this moment.</p>
-      <p class="tl-note">The day everything was written for</p>
+      <p class="tl-age">Son anniversaire</p>
+      <p class="tl-narrator">Le coffre s'ouvre. Un mot de passe arrive. Chaque version de votre parent, gardée pour ce moment.</p>
+      <p class="tl-note">Le jour pour lequel tout a été écrit</p>
     </div>
   </div>
 </div></section>
 
 <!-- ── PILLARS ── -->
 <section class="pillars reveal"><div class="container">
-  <span class="section-marker">Why Kepty is different</span>
+  <span class="section-marker">Ce qui rend Kepty différent</span>
   <div class="pillar-item">
     <div class="pillar-num-label">I</div>
     <div class="pillar-text">
-      <h3>A portrait, not a highlight reel</h3>
-      <p>This is not a baby album. Baby albums are about the child. Kepty is about you; who you were, what kept you up at night, what you got wrong, what you loved without knowing how to say it. That is what they will want when they are old enough to ask.</p>
+      <h3>Un portrait, pas un album de souvenirs</h3>
+      <p>Ce n'est pas un album bébé. Les albums bébé parlent de l'enfant. Kepty parle de vous; qui vous étiez, ce qui vous tenait éveillé la nuit, ce que vous avez mal fait, ce que vous aimiez sans savoir comment le dire. C'est ce qu'ils voudront quand ils seront assez grands pour demander.</p>
     </div>
   </div>
   <div class="pillar-item">
     <div class="pillar-num-label">II</div>
     <div class="pillar-text">
-      <h3>On your phone or your watch</h3>
-      <p>Leave a voice message from the park. Drop a note from your watch on the way to school. Write in the car, on a walk, at midnight. Kepty is always in your pocket. The moment you want to capture never announces itself.</p>
+      <h3>Sur votre téléphone ou votre montre</h3>
+      <p>Laissez un message vocal depuis le parc. Déposez une note depuis votre montre en chemin vers l'école. Écrivez lors d'une promenade, au détour d'un café ou à minuit, quand une pensée vous revient.
+Kepty est toujours dans votre poche. Le moment que vous souhaitez capturer ne s'annonce jamais.</p>
     </div>
   </div>
   <div class="pillar-item">
     <div class="pillar-num-label">III</div>
     <div class="pillar-text">
-      <h3>Words, photos and videos</h3>
-      <p>Write when something moves you. Add a photo of the moment. Record a video of yourself talking to them. The vault holds all of it; text, image, and voice; until the day it opens.</p>
+      <h3>Mots, photos et vidéos</h3>
+      <p>Écrivez quand quelque chose vous touche. Ajoutez une photo du moment. Enregistrez une vidéo de vous leur parlant. Le coffre garde tout; texte, image et voix; jusqu'au jour où il s'ouvre.</p>
     </div>
   </div>
   <div class="pillar-item">
     <div class="pillar-num-label">IV</div>
     <div class="pillar-text">
-      <h3>They do not know it exists</h3>
-      <p>The child knows nothing until their 18th birthday. No performance. No audience. Just you, writing honestly, knowing they will only read it when they are old enough to understand.</p>
+      <h3>Ils ne savent pas que cela existe</h3>
+      <p>L'enfant ne sait rien jusqu'à son 18e anniversaire. Pas de performance. Pas d'audience. Juste vous, écrivant honnêtement, sachant qu'ils ne le liront que lorsqu'ils seront assez grands pour comprendre.</p>
     </div>
   </div>
   <div class="pillar-item">
     <div class="pillar-num-label">V</div>
     <div class="pillar-text">
-      <h3>Write whenever you feel it</h3>
-      <p>Write at 2am after a hard day. Write when they say something you never want to forget. No schedule, no pressure; just write when the moment calls. We only send one reminder a year, on their birthday, to capture who you are right now.</p>
+      <h3>Écrivez quand vous le ressentez</h3>
+      <p>Écrivez à 2h du matin après une journée difficile. Écrivez quand ils disent quelque chose que vous ne voulez jamais oublier. Aucun calendrier, aucune pression; écrivez simplement quand le moment l'exige. Nous n'envoyons qu'un seul rappel par an, le jour de leur anniversaire, pour capturer qui vous êtes maintenant.</p>
     </div>
   </div>
 </div></section>
 
 <!-- ── APP PREVIEW ── -->
 <section class="preview reveal"><div class="container--wide">
-  <span class="section-marker" style="text-align:center;display:block;">How it works</span>
-  <p class="preview-intro" style="text-align:center;margin-left:auto;margin-right:auto;">Write, photograph, record. Everything sealed until the day it matters most.</p>
+  <span class="section-marker" style="text-align:center;display:block;">Comment ça marche</span>
+  <p class="preview-intro" style="text-align:center;margin-left:auto;margin-right:auto;">Écrivez, photographiez, enregistrez. Tout scellé jusqu'au jour où cela compte le plus.</p>
 
   <div class="phones">
 
@@ -904,48 +904,48 @@ footer{
           <span class="pbar-lock">⚿</span>
         </div>
         <div class="pbody" id="list-view">
-          <div class="entry-list-item" onclick="openWrite()">
-            <div class="eli-meta"><span>Day one · 2025</span><span>Note</span></div>
-            <p class="eli-preview">"You arrived at 6:42am. I did not know it was possible…"</p>
+          <div class="entry-list-item" onclick="openÉcrire()">
+            <div class="eli-meta"><span>Jour J · 2025</span><span>Note</span></div>
+            <p class="eli-preview">"Tu es arrivé à 6h42. Je ne savais pas qu'il était possible…"</p>
           </div>
-          <div class="entry-list-item" onclick="openWrite()">
-            <div class="eli-meta"><span>Age 3 · 2028</span><span>Note + Photo</span></div>
-            <p class="eli-preview">"You told me I was your best friend today…"</p>
+          <div class="entry-list-item" onclick="openÉcrire()">
+            <div class="eli-meta"><span>Âge 3 · 2028</span><span>Note + Photo</span></div>
+            <p class="eli-preview">"Tu m'as dit aujourd'hui que j'étais ton meilleur ami…"</p>
             <div class="eli-thumb">
               <img src="data:image/jpeg;base64,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" alt="A moment from childhood" style="width:100%;height:100%;object-fit:cover;object-position:center top;border-radius:4px;display:block;"/>
             </div>
           </div>
-          <button class="add-btn" onclick="openWrite()">+ Write an entry</button>
+          <button class="add-btn" onclick="openÉcrire()">+ Écrire une entrée</button>
         </div>
         <div class="write-view" id="write-view">
-          <div class="write-back" onclick="closeWrite()">← Vault</div>
+          <div class="write-back" onclick="closeÉcrire()">← Coffre</div>
           <div class="write-inner">
-            <p class="write-age-label">New entry — Age 8 · 2033</p>
+            <p class="write-age-label">Nouvelle entrée — Âge 8 · 2033</p>
             <div class="write-type-row">
-              <button class="wt active" onclick="switchWt(this,'ta')">Write</button>
+              <button class="wt active" onclick="switchWt(this,'ta')">Écrire</button>
               <button class="wt" onclick="switchWt(this,'pa')">Photo</button>
-              <button class="wt" onclick="switchWt(this,'va')">Video</button>
+              <button class="wt" onclick="switchWt(this,'va')">Vidéo</button>
             </div>
             <div id="ta">
-              <textarea class="write-box" id="write-box" placeholder="Write to them. They will not read this until they turn 18…"></textarea>
+              <textarea class="write-box" id="write-box" placeholder="Écrire to them. They will not read this until they turn 18…"></textarea>
             </div>
             <div id="pa" style="display:none;">
               <div class="upload-area">
                 <div class="upload-icon">📷</div>
-                <p class="upload-label">Add a photo from today</p>
+                <p class="upload-label">Ajouter une photo d'aujourd'hui</p>
               </div>
             </div>
             <div id="va" style="display:none;">
               <div class="upload-area">
                 <div class="upload-icon">🎥</div>
-                <p class="upload-label">Record a video message</p>
+                <p class="upload-label">Enregistrer un message vidéo</p>
               </div>
             </div>
-            <button class="keep-btn" onclick="saveEntry()">Keep this entry</button>
+            <button class="keep-btn" onclick="saveEntry()">Garder cette entrée</button>
           </div>
         </div>
       </div>
-      <p class="phone-label">Parent — writing view</p>
+      <p class="phone-label">Parent — vue d'écriture</p>
     </div>
 
     <!-- Child unlock phone -->
@@ -957,119 +957,119 @@ footer{
         </div>
         <div class="unlock-body">
           <div class="unlock-icon" id="u-icon">🔒</div>
-          <p class="unlock-title" id="u-title">Happy 18th, Sofia</p>
-          <p class="unlock-sub" id="u-sub">Your parents have been writing to you since you were born. Enter your birthday key.</p>
+          <p class="unlock-title" id="u-title">Joyeux 18e anniversaire, Sofia</p>
+          <p class="unlock-sub" id="u-sub">Vos parents vous écrivent depuis votre naissance. Entrez votre clé d'anniversaire.</p>
           <input class="unlock-input" id="u-key" type="text" placeholder="· · · · · · · ·" maxlength="8"/>
-          <button class="unlock-btn" onclick="unlockVault()">Open my vault</button>
+          <button class="unlock-btn" onclick="unlockVault()">Ouvrir mon coffre</button>
         </div>
       </div>
-      <p class="phone-label">Child — 18th birthday</p>
+      <p class="phone-label">Enfant — 18e anniversaire</p>
     </div>
 
   </div>
-  <p class="preview-note" style="text-align:center;margin:40px auto 0;">Interactive preview — tap the parent screen to write. Enter any code to open Sofia's vault.</p>
+  <p class="preview-note" style="text-align:center;margin:40px auto 0;">Aperçu interactif — appuyez sur l'écran parent pour écrire. Entrez n'importe quel code pour ouvrir le coffre de Sofia.</p>
 </div></section>
 
 <!-- ── PRICING ── -->
 <section class="pricing reveal"><div class="container" style="text-align:center;">
-  <span class="section-marker" style="text-align:center;">Pricing</span>
+  <span class="section-marker" style="text-align:center;">Tarifs</span>
   <div class="pricing-grid">
     <div class="pricing-card" style="text-align:left;">
-      <p class="pc-plan">Monthly</p>
+      <p class="pc-plan">Mensuel</p>
       <div class="pc-amount"><sup>€</sup>4.99</div>
-      <p class="pc-period">per month · cancel any time</p>
+      <p class="pc-period">par mois · résiliable à tout moment</p>
       <ul class="pc-features">
-        <li>Notes, photos and videos</li>
-        <li>Both parents can write</li>
-        <li>Sealed until their 18th</li>
-        <li>Birthday reminder every year</li>
-        <li>Writing prompts by age</li>
-        <li>Available on iPhone and Apple Watch</li>
+        <li>Notes, photos et vidéos</li>
+        <li>Les deux parents peuvent écrire</li>
+        <li>Scellé jusqu'à ses 18 ans</li>
+        <li>Rappel d'anniversaire chaque année</li>
+        <li>Suggestions d'écriture par âge</li>
+        <li>Disponible sur téléphone et montre connectée</li>
       </ul>
     </div>
     <div class="pricing-card featured" style="text-align:left;">
-      <span class="founding">First 200 families</span>
-      <p class="pc-plan">Lifetime</p>
+      <span class="founding">Pour les 200 premières familles</span>
+      <p class="pc-plan">À vie</p>
       <div class="pc-amount"><sup>€</sup>199</div>
-      <p class="pc-period" style="color:rgba(247,245,240,0.55);">one payment · <span style="color:#FAF8F3;font-weight:400;font-style:italic;letter-spacing:0.02em;">€299 for everyone after the first 200</span></p>
+      <p class="pc-period" style="color:rgba(247,245,240,0.55);">un paiement · <span style="color:#FAF8F3;font-weight:400;font-style:italic;letter-spacing:0.02em;">€299 pour tout le monde après les 200 premières familles</span></p>
       <ul class="pc-features">
-        <li>Everything in monthly</li>
-        <li>Printed book delivered at 18</li>
-        <li>Legacy transfer if needed</li>
-        <li>No subscription. No renewal risk.</li>
-        <li>Founding price, never available again</li>
+        <li>Tout ce qui est dans Mensuel</li>
+        <li>Livre imprimé livré à 18 ans</li>
+        <li>Transfert de legs si nécessaire</li>
+        <li>Pas d'abonnement. Aucun risque de renouvellement.</li>
+        <li>Prix fondateur, jamais disponible à nouveau</li>
       </ul>
-      <p style="margin-top:24px;font-size:12px;font-weight:400;font-style:italic;letter-spacing:0.04em;color:#FAF8F3;border-top:1px solid rgba(247,245,240,0.1);padding-top:20px;line-height:1.7;">After the first 200 families, the lifetime plan goes to <strong style="font-weight:500;">€299</strong>. This price will not return.</p>
+      <p style="margin-top:24px;font-size:12px;font-weight:400;font-style:italic;letter-spacing:0.04em;color:#FAF8F3;border-top:1px solid rgba(247,245,240,0.1);padding-top:20px;line-height:1.7;">Après les 200 premières familles, le plan à vie passe à <strong style="font-weight:500;">€299</strong>. Ce prix ne reviendra pas.</p>
     </div>
   </div>
   <p class="pricing-footnote">
-    Your entries are encrypted. We cannot read them.
+    Vos entrées sont chiffrées. Nous ne pouvons pas les lire.
   </p>
 </div></section>
 
 <!-- ── BOTTOM CTA ── -->
 <!-- ── FAQ ── -->
 <section class="faq reveal"><div class="container">
-  <span class="section-marker">Questions</span>
+  <span class="section-marker">Questions fréquentes</span>
   <div class="faq-list">
 
     <div class="faq-item">
       <button class="faq-q" onclick="toggleFaq(this)">
-        Can anyone read my entries, including Kepty?
+        Quelqu'un peut-il lire mes entrées, y compris Kepty ?
         <span class="faq-icon">+</span>
       </button>
       <div class="faq-a">
-        No. Your entries are encrypted the moment you write them. Nobody at Kepty can read them; not our team, not our servers, not anyone. Only you have access while you write. Your child receives access on their 18th birthday, and nobody else ever does.
+        Non. Vos entrées sont chiffrées dès que vous les écrivez. Personne chez Kepty ne peut les lire; ni notre équipe, ni nos serveurs, ni personne. Vous seul y avez accès pendant que vous écrivez. Votre enfant reçoit l'accès le jour de ses 18 ans, et personne d'autre ne l'aura jamais.
       </div>
     </div>
 
     <div class="faq-item">
       <button class="faq-q" onclick="toggleFaq(this)">
-        Can my child accidentally discover this?
+        Mon enfant peut-il découvrir cela accidentellement ?
         <span class="faq-icon">+</span>
       </button>
       <div class="faq-a">
-        No. Kepty is entirely separate from any account your child has. There is no app on their phone, no notification, no email. Nothing exists for them until the day they turn 18, when they receive a single email with their access key. Until that day, it is completely invisible to them.
+        Non. Kepty est entièrement séparé de tout compte que possède votre enfant. Il n'y a pas d'application sur son téléphone, pas de notification, pas d'email. Rien n'existe pour lui jusqu'au jour de ses 18 ans, où il reçoit un seul email avec sa clé d'accès. Jusqu'à ce jour, c'est complètement invisible pour lui.
       </div>
     </div>
 
     <div class="faq-item">
       <button class="faq-q" onclick="toggleFaq(this)">
-        What if I start when my child is already older?
+        Et si je commence alors que mon enfant est déjà plus grand ?
         <span class="faq-icon">+</span>
       </button>
       <div class="faq-a">
-        You can start at any age, from birth to seventeen. The vault opens on their 18th birthday regardless of when you begin. A parent who starts at age ten still gives their child eight years of who they were. That is still a portrait most people never receive.
+        Vous pouvez commencer à n'importe quel âge, de la naissance à dix-sept ans. Le coffre s'ouvre le jour de ses 18 ans, quel que soit le moment où vous commencez. Un parent qui commence à dix ans offre quand même à son enfant huit ans de qui il était. C'est encore un portrait que la plupart des gens ne reçoivent jamais.
       </div>
     </div>
 
     <div class="faq-item">
       <button class="faq-q" onclick="toggleFaq(this)">
-        Can both parents write?
+        Les deux parents peuvent-ils écrire ?
         <span class="faq-icon">+</span>
       </button>
       <div class="faq-a">
-        Yes. You can invite a second parent, a co-parent, or a guardian to write in the same vault. Each parent has their own entries. Your child receives everything from both on their 18th birthday; two voices, one vault.
+        Oui. Vous pouvez inviter un deuxième parent, un coparent ou un tuteur à écrire dans le même coffre. Chaque parent a ses propres entrées. Votre enfant reçoit tout des deux le jour de ses 18 ans; deux voix, un coffre.
       </div>
     </div>
 
     <div class="faq-item">
       <button class="faq-q" onclick="toggleFaq(this)">
-        If I cancel my monthly plan, do I lose my entries?
+        Si j'annule mon abonnement mensuel, je perds mes entrées ?
         <span class="faq-icon">+</span>
       </button>
       <div class="faq-a">
-        No. If you pause or cancel, your entries are kept safely. You will not be able to add new ones until you reactivate, but nothing is ever deleted. We hold what you have written for as long as you need.
+        Non. Si vous suspendez ou annulez, vos entrées sont conservées en sécurité. Vous ne pourrez pas en ajouter de nouvelles jusqu'à la réactivation, mais rien n'est jamais supprimé. Nous conservons ce que vous avez écrit aussi longtemps que nécessaire.
       </div>
     </div>
 
     <div class="faq-item">
       <button class="faq-q" onclick="toggleFaq(this)">
-        What happens if Kepty closes down?
+        Que se passe-t-il si Kepty ferme ?
         <span class="faq-icon">+</span>
       </button>
       <div class="faq-a">
-        If we ever make the decision to close, we commit to sending every parent a full export of their entries; every note, photo, and video; at least 90 days before we shut down. Your entries belong to you, not to us. We will never disappear without giving you everything back first.
+        Si nous prenons jamais la décision de fermer, nous nous engageons à envoyer à chaque parent une exportation complète de ses entrées; chaque note, photo et vidéo; au moins 90 jours avant la fermeture. Vos entrées vous appartiennent, pas à nous. Nous ne disparaîtrons jamais sans vous rendre d'abord tout ce qui vous appartient.
       </div>
     </div>
 
@@ -1077,28 +1077,28 @@ footer{
 </div></section>
 
 <section class="bottom-cta reveal"><div class="container" style="text-align:center;">
-  <span class="section-marker" style="text-align:center;">Join the waitlist</span>
-  <h2 class="cta-headline">Start with one word.<br>The rest will follow.</h2>
-  <p class="cta-sub">Kepty opens early 2027 to its first 200 families. One email when we open. Nothing else.</p>
+  <span class="section-marker" style="text-align:center;">Rejoindre la liste</span>
+  <h2 class="cta-headline">Commencez par un mot.<br>Le reste suivra.</h2>
+  <p class="cta-sub">Kepty ouvre début 2027 pour ses 200 premières familles. Un seul email à l'ouverture. Rien d'autre.</p>
 
   <div class="form-outer" id="wrap-bottom" style="max-width:400px;margin:0 auto;">
     <div class="form-row" id="row-bottom">
-      <input type="email" id="email-bottom" placeholder="Your email address" autocomplete="email" aria-label="Email"/>
-      <button id="btn-bottom" onclick="handleSignup('bottom')">Join</button>
+      <input type="email" id="email-bottom" placeholder="Votre adresse email" autocomplete="email" aria-label="Email"/>
+      <button id="btn-bottom" onclick="handleSignup('bottom')">Rejoindre</button>
     </div>
-    <p class="field-error" id="err-bottom">Please enter a valid email address.</p>
-    <p class="form-note">No commercial emails. Only one email from us when we open.</p>
+    <p class="field-error" id="err-bottom">Veuillez entrer une adresse email valide.</p>
+    <p class="form-note">Aucun email commercial. Un seul email de notre part à l'ouverture.</p>
   </div>
   <div class="success-msg" id="success-bottom" style="max-width:400px;margin:0 auto;">
-    You are on the list. We will write when Kepty opens. One email, nothing else.
+    Vous êtes sur la liste. Nous vous écrirons à l'ouverture de Kepty. Un seul email, rien d'autre.
   </div>
 </div></section>
 
 <footer><div class="container" style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;">
   <span class="footer-logo">Kepty</span>
-  <span class="footer-note">© 2026 Kepty · kepty.app · Encrypted. Private.</span>
+  <span class="footer-note">© 2026 Kepty · kepty.app · Chiffré. Privé.</span>
   <a href="https://instagram.com/kepty.app" target="_blank" rel="noopener" style="font-size:12px;color:var(--stone);font-weight:300;letter-spacing:0.08em;text-decoration:none;transition:opacity 0.2s;" onmouseover="this.style.opacity=0.6" onmouseout="this.style.opacity=1">@kepty.app</a>
-  <a href="#privacy" style="font-size:12px;color:var(--stone);font-weight:300;letter-spacing:0.08em;text-decoration:none;opacity:0.7;">Privacy policy</a>
+  <a href="#privacy" style="font-size:12px;color:var(--stone);font-weight:300;letter-spacing:0.08em;text-decoration:none;opacity:0.7;">Politique de confidentialité</a>
 </div></footer>
 
 <script>
@@ -1156,9 +1156,9 @@ async function handleSignup(s) {
       else throw new Error(b.message||'error');
     }
   } catch(err){
-    bEl.disabled=false; bEl.textContent='Begin';
+    bEl.disabled=false; bEl.textContent='Rejoindre';
     rEl.classList.add('error');
-    errEl.textContent='Something went wrong. Please try again.';
+    errEl.textContent='Une erreur s\'est produite. Veuillez réessayer.';
     errEl.classList.add('visible');
   }
 }
@@ -1178,11 +1178,11 @@ function toggleFaq(btn) {
   if (!isOpen) item.classList.add('open');
 }
 
-function openWrite(){
+function openÉcrire(){
   document.getElementById('list-view').style.display='none';
   document.getElementById('write-view').style.display='block';
 }
-function closeWrite(){
+function closeÉcrire(){
   document.getElementById('list-view').style.display='block';
   document.getElementById('write-view').style.display='none';
 }
@@ -1195,13 +1195,13 @@ function saveEntry(){
   const txt=document.getElementById('write-box').value.trim();
   if(!txt){ document.getElementById('write-box').style.borderBottomColor='var(--error)'; return; }
   document.getElementById('write-box').style.borderBottomColor='';
-  closeWrite();
+  closeÉcrire();
   const list=document.getElementById('list-view');
   const saved=document.createElement('div');
   saved.className='entry-list-item';
   saved.style.borderLeft='2px solid var(--stone)';
   saved.style.paddingLeft='12px';
-  saved.innerHTML=`<div class="eli-meta"><span>Age 8 · just now</span><span>Note</span></div><p class="eli-preview">"${txt.slice(0,55)}${txt.length>55?'…':''}"</p>`;
+  saved.innerHTML=`<div class="eli-meta"><span>Âge 8 · maintenant</span><span>Note</span></div><p class="eli-preview">"${txt.slice(0,55)}${txt.length>55?'…':''}"</p>`;
   list.insertBefore(saved,list.firstChild);
   document.getElementById('write-box').value='';
 }
@@ -1213,10 +1213,10 @@ function unlockVault(){
     return;
   }
   document.getElementById('u-icon').textContent='🔓';
-  document.getElementById('u-title').textContent='Welcome, Sofia.';
-  document.getElementById('u-sub').innerHTML='<span style="font-family:Cormorant Garamond,serif;font-style:italic;font-size:14px;color:rgba(247,245,240,0.65);line-height:1.7;">Your parents wrote to you 216 times. From the day you were born. Every word was kept for this moment.</span>';
+  document.getElementById('u-title').textContent='Bienvenue, Sofia.';
+  document.getElementById('u-sub').innerHTML='<span style="font-family:Cormorant Garamond,serif;font-style:italic;font-size:14px;color:rgba(247,245,240,0.65);line-height:1.7;">Vos parents vous ont écrit 216 fois. Depuis le jour de votre naissance. Chaque mot a été gardé pour ce moment.</span>';
   document.getElementById('u-key').style.display='none';
-  document.querySelector('.unlock-btn').textContent='Read my vault →';
+  document.querySelector('.unlock-btn').textContent='Lire mon coffre →';
   document.getElementById('pbar-lock').textContent='🔓';
 }
 </script>
@@ -1224,30 +1224,30 @@ function unlockVault(){
 <!-- ── PRIVACY POLICY ── -->
 <section id="privacy" style="padding:80px 0;border-top:1px solid var(--ghost);">
   <div class="container">
-    <p class="section-marker">Privacy policy</p>
+    <p class="section-marker">Politique de confidentialité</p>
     <div style="max-width:640px;">
-      <p style="font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:300;font-style:italic;color:var(--ink);margin-bottom:32px;line-height:1.5;">Your entries are yours. We are simply the keeper.</p>
+      <p style="font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:300;font-style:italic;color:var(--ink);margin-bottom:32px;line-height:1.5;">Vos entrées vous appartiennent. Nous en sommes simplement les gardiens.</p>
 
-      <p style="font-size:14px;font-weight:300;color:var(--mid);line-height:1.85;margin-bottom:20px;"><strong style="color:var(--ink);font-weight:400;">Who we are.</strong> Kepty (kepty.app) is a digital time capsule platform operated by BonbelleGroup. We collect and store personal data solely to deliver the Kepty service.</p>
+      <p style="font-size:14px;font-weight:300;color:var(--mid);line-height:1.85;margin-bottom:20px;"><strong style="color:var(--ink);font-weight:400;">Qui nous sommes.</strong> Kepty (kepty.app) est une plateforme de capsule temporelle numérique exploitée par BonbelleGroup. Nous collectons et stockons des données personnelles uniquement pour fournir le service Kepty.</p>
 
-      <p style="font-size:14px;font-weight:300;color:var(--mid);line-height:1.85;margin-bottom:20px;"><strong style="color:var(--ink);font-weight:400;">What we collect.</strong> On this waitlist page we collect your email address only. When the product launches, we will also collect the entries (notes, photos, videos) you choose to add to your vault, and payment information processed securely through Stripe.</p>
+      <p style="font-size:14px;font-weight:300;color:var(--mid);line-height:1.85;margin-bottom:20px;"><strong style="color:var(--ink);font-weight:400;">Ce que nous collectons.</strong> Sur cette page de liste d'attente, nous collectons uniquement votre adresse email. Lors du lancement du produit, nous collecterons également les entrées (notes, photos, vidéos) que vous choisissez d'ajouter à votre coffre, ainsi que les informations de paiement traitées en toute sécurité via Stripe.</p>
 
-      <p style="font-size:14px;font-weight:300;color:var(--mid);line-height:1.85;margin-bottom:20px;"><strong style="color:var(--ink);font-weight:400;">Why we collect it.</strong> Your email address is used solely to notify you when Kepty opens. We will send one email. We will not send newsletters, product updates, or marketing communications without your explicit consent.</p>
+      <p style="font-size:14px;font-weight:300;color:var(--mid);line-height:1.85;margin-bottom:20px;"><strong style="color:var(--ink);font-weight:400;">Pourquoi nous les collectons.</strong> Votre adresse email is used solely to notify you when Kepty opens. We will send one email. We will not send newsletters, product updates, or marketing communications without your explicit consent.</p>
 
-      <p style="font-size:14px;font-weight:300;color:var(--mid);line-height:1.85;margin-bottom:20px;"><strong style="color:var(--ink);font-weight:400;">Your entries.</strong> Everything you write in your vault is encrypted. We cannot read your entries. They are stored securely and released only to your designated child on their 18th birthday, or to you at any time upon request.</p>
+      <p style="font-size:14px;font-weight:300;color:var(--mid);line-height:1.85;margin-bottom:20px;"><strong style="color:var(--ink);font-weight:400;">Vos entrées.</strong> Tout ce que vous écrivez dans votre coffre est chiffré. Nous ne pouvons pas lire vos entrées. Elles sont stockées en toute sécurité et ne sont transmises qu'à votre enfant désigné le jour de ses 18 ans, ou à vous à tout moment sur demande.</p>
 
-      <p style="font-size:14px;font-weight:300;color:var(--mid);line-height:1.85;margin-bottom:20px;"><strong style="color:var(--ink);font-weight:400;">Your rights.</strong> Under GDPR you have the right to access, correct, or delete your personal data at any time. To exercise these rights, contact us at info@kepty.app.</p>
+      <p style="font-size:14px;font-weight:300;color:var(--mid);line-height:1.85;margin-bottom:20px;"><strong style="color:var(--ink);font-weight:400;">Vos droits.</strong> En vertu du RGPD, vous avez le droit d'accéder, de corriger ou de supprimer vos données personnelles à tout moment. Pour exercer ces droits, contactez-nous à info@kepty.app.</p>
 
-      <p style="font-size:14px;font-weight:300;color:var(--mid);line-height:1.85;margin-bottom:20px;"><strong style="color:var(--ink);font-weight:400;">Data retention.</strong> Waitlist email addresses are held until you unsubscribe or Kepty launches. Vault entries are held for the duration of your subscription and for 18 years maximum from the child's date of birth.</p>
+      <p style="font-size:14px;font-weight:300;color:var(--mid);line-height:1.85;margin-bottom:20px;"><strong style="color:var(--ink);font-weight:400;">Conservation des données.</strong> Les adresses email de la liste d'attente sont conservées jusqu'à votre désinscription ou le lancement de Kepty. Les entrées du coffre sont conservées pendant la durée de votre abonnement et au maximum 18 ans à compter de la date de naissance de l'enfant.</p>
 
-      <p style="font-size:14px;font-weight:300;color:var(--mid);line-height:1.85;margin-bottom:0;"><strong style="color:var(--ink);font-weight:400;">Contact.</strong> For any privacy-related questions: info@kepty.app</p>
+      <p style="font-size:14px;font-weight:300;color:var(--mid);line-height:1.85;margin-bottom:0;"><strong style="color:var(--ink);font-weight:400;">Contact.</strong> Pour toute question relative à la confidentialité : info@kepty.app</p>
     </div>
   </div>
 </section>
 
 <div style="position:fixed;bottom:24px;right:24px;z-index:200;display:flex;gap:8px;">
-  <a href="/index.html" style="font-size:11px;font-weight:500;letter-spacing:0.12em;color:var(--ink);text-decoration:none;padding:6px 12px;border:1px solid var(--ghost);background:var(--paper);opacity:1;">EN</a>
-  <a href="/fr.html" style="font-size:11px;font-weight:500;letter-spacing:0.12em;color:var(--muted);text-decoration:none;padding:6px 12px;border:1px solid var(--ghost);background:var(--paper);opacity:0.6;">FR</a>
+  <a href="/index.html" style="font-size:11px;font-weight:500;letter-spacing:0.12em;color:var(--muted);text-decoration:none;padding:6px 12px;border:1px solid var(--ghost);background:var(--paper);opacity:0.6;">EN</a>
+  <a href="/fr.html" style="font-size:11px;font-weight:500;letter-spacing:0.12em;color:var(--ink);text-decoration:none;padding:6px 12px;border:1px solid var(--ghost);background:var(--paper);opacity:1;">FR</a>
 </div>
 </body>
 </html>
